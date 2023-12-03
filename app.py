@@ -13,7 +13,7 @@ def create_app():
     db.init_app(app)
 
     app.register_blueprint(main_bp)
-    app.register_blueprint(user_bp)
+    app.register_blueprint(user_bp, url_prefix='/users')
 
     return app
 
