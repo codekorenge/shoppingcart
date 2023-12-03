@@ -1,7 +1,8 @@
 from flask import Flask
 
-from app.extensions import db
-from app.routes.api import api_bp
+from extensions import db
+from main.routes import main_bp
+from users.routes import user_bp
 
 
 def create_app():
@@ -11,7 +12,8 @@ def create_app():
 
     db.init_app(app)
 
-    app.register_blueprint(api_bp)
+    app.register_blueprint(main_bp)
+    app.register_blueprint(user_bp)
 
     return app
 
